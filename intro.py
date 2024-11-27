@@ -254,7 +254,7 @@ print(list)'''
 #     print("Hello Nerds")
 #     count1 += 1  # Increment count1 to avoid infinite loop
 #############TUPLE IN PYTHON (uples are immutable we cannot change tuples we have to make the new one for any kind of change )
-tup = (2,5,"love",7.89,"geet aur gori ",'stay alive')
+'''tup = (2,5,"love",7.89,"geet aur gori ",'stay alive')
 print(type(tup),tup)
 print(tup[-2])
 if 34 in tup:
@@ -278,4 +278,187 @@ print(entertain)
 tuple = (3,4,6,9,4,2,2,5,6,5,3,3,2,9)
 print(tuple.count(3))
 spa = tuple.index(5)
-print(spa)
+print(spa)'''
+############PYTHON F strings 
+#first we will see the old approach througgh whic we used strings 
+# letters = "hey my name is {} and im from {}"
+# name = "tania "
+# country = "new zeland "
+# print(letters.format(name, country))
+# print(letters)
+# #now in fstring we can directly enter the value of  variables inside 
+# price = 300
+# txt = f"the price of this shirt is {price : .2f} dollars"
+# print(txt)
+# #now if we want to show f string they way they are written then we will use 2 curly brackets together
+# txt = f"the price of this shirt is {{price : .2f}} dollars"
+# print(txt)
+###########DOC STRING AND PEP8 IN PYTHON
+# doc string is used to tell the purpose of the function and also it should be written below function to make it a doc 
+# def square(n):
+#     '''this function named as aqusre is used to find the square of a function'''
+#     print(n**2)
+# square(5)
+# print(square.__doc__)
+#by wriring import this in python we gonna get a poem which an esater egg in python which is zen of python
+######recursion in python 
+#let's find factorial of a number by using recursion
+'''def factorial(n):
+    if(n==0 or n==1):
+        return 1
+    else:
+        return n * factorial(n-1)
+print(factorial(5))'''
+#now we will calculate fibonacci series 
+# def fibo(fn):
+#     if(fn == 0 ):
+#       return 0
+#     elif(fn == 1):
+#       return 1 
+#     else:
+#       return fibo(fn-1)+fibo(fn-2)
+
+# #print(fibo(12))
+# for i in range(int(input("enter the number"))):
+#    print(fibo(i),end = " ")
+########set in python 
+# set is a collection of well-defined objects which don't take anything in repeat and its idexes are not fixed 
+'''s = {2,42,2,4,7,8,8,88,4,3,5,3,3}
+print(s,type(s))
+harry = {}
+print(type(harry)) #tis will give a type dictionary as dictionary also starts and ends with { brackers } so in order to get empty set type as set we will use 
+harry = set()
+print(type(harry))
+#set dont maintain order so if you apply a for loop to get value it maybe any value without mainatianing any order
+s = {"daniel" , 46 , "ka",678.78,(-8,9)}
+for value in s:
+    print(value)'''
+#methods of set in python 
+'''s1 = {2,"goriya",6.8}
+s2 = {3,2,7,9,120}
+print(s1.union(s2))
+s1.update(s2)  #to upate value of set s1 with values of s2 which are not present in s1 if we only use union then vale of s1 reamin same if we print it in next line but after usig updare fuction the value of set will be changed 
+#print(s1)
+print(s1.intersection(s2))
+#symmetric diference in cells means all those values which are ot common (AUB)-(ANB)
+print(s1.symmetric_difference(s2)) #all will be printed except ANB which was 2 in our case 
+print(s1.issuperset(s2))  #are all values of s2 are present in s1
+print(s2.issubset(s1)) #are values of s2 are also a aprt if s1
+s1.add("ja ni ja tu gaira sang laaaaa")
+print(s1)
+s1.remove(7) #if that value is not present in set remove will give an error while discard won't give any error
+s1.discard("goriya")
+print(s1)
+s3 = s1.pop()
+print(s3) #onr random value will be remved from set 
+print(s1)
+del s1   #to delete whole set '''
+###############dictionaries n python 
+#it is a combination of key value pairs separated by coma e.g, (dictionaies were unordered before  but with ew python versio they are ordered now )
+# dic = {
+#     45 : "student1",
+#     965 : "student2",
+#     475 : "student4",
+#     5 : "student6",
+#     2465 : "student8"
+# }
+# print(dic[5])
+# print(dic.items())
+# print(dic.get(5)) #both will get value of 5 put .get wont throw an error if 
+# for key in dic.keys():
+#         print(dic[key])
+# dic1 = {
+#     45 : "student1",
+#     965 : "student2",
+#     475 : "student4",
+#     5 : "student6",
+#     2465 : "student8"
+# }
+# dic2 = {
+#    1 : "stud1", 
+#     2 : "stud2",
+#      3 : "stud4",
+#        4 : "stud6",
+#     5 : "stud8"
+# }
+# dic1.update(dic2)
+# #print(dic1)
+# dic1.clear()
+# dic2.pop(5)
+# print(dic2)
+# dic1.popitem() #it will remove last value pair 
+#########using else wit for loop
+# for i in range(5):
+#     print(i)
+# else:   #i will be printed tull range n-1 and then in last sorry statement will be printed 
+#     print("sorry i is not present ")
+# for i in []:
+#     print(i)
+# else:  #only else statements will be printed as  it in an empty list 
+#     print("sorry i is not present ")
+# for i in range(5):
+#     print(i)
+#     if(i==3):
+#         break
+# else:  #else statement won't be printed as it can be printed in the end of loop after all iterations are done but here the loop break after 3 
+#     print("sorry i is not present ")
+# for x in range(5):
+#     print("iterations no {} in for loop ".format(x+1))
+# else:
+#     print("else block in loop ")
+# print("out of loop")
+#############EXCEPTION HANDLING IN PYTHON 
+# a = input("enter the number ")  
+# print(f"so te multiplication table of {a} is :")  #now if we give an string that can't be converted into intger then this will through and error and ramainig code will not run 
+# for i in range(1,11):
+#     print(f"{int(a)} X {i} = {int(a)* i }")
+
+# print("some imp lines of code ")
+# print("program ends here ")
+# # so to avoid error we will use try and except method 
+# a = input("enter the number ")  
+# print(f"so te multiplication table of {a} is :")  #now if we give an string that can't be converted into intger then this will through and error and ramainig code will not run 
+# a = input("enter the number ")  
+# print(f"so te multiplication table of {a} is :")
+# try:
+#    for i in range(1,11):
+#      print(f"{int(a)} X {i} = {int(a)* i }")
+# # except Exception as e:
+# #    print(e)   #it gave an error but other code keep running instead of makin a halt 
+# except:  #can also wrie it like that 
+#    print("invalid input error")
+
+# print("some imp lines of code ")
+# print("program ends here ")
+###finally keyword in python which mean that the block of code should always be executed no matter what the situation is , for example if we have a a function which returns 0 we try works and 1 when except runs but last line(with print statement) wont run but if we use finally keyword with it then that last line will work eventually no matter what ever the rwturn value of function is 
+'''try:
+    l = [3,31,35,32,2]
+    i = int(input("enter the index of the list yi want to print "))
+    print(l[i])
+except:
+    print("an error occured!!!!!!!!!!!")
+finally: 
+    print("this code will e executed no matter what ")'''
+##############rAISING CUSTOM ERRORS
+# (we can raise cusrtom errors if we have problem with aynthing that we don't want to deal with also we can also make a whole exception error classs if we want to deal with specific kind of situation in the form of an error for example let we have a server closed we can make that thing into an error to deal with it properly  )
+# a = int(input("enter the value of a between 5 and 10"))
+# if(a<5 or a>10):
+#     raise ValueError("the value of a is invalid")
+# Short hand if else statements 
+# a = 9273
+# b= 34
+# print("a") if a<b else print("=") if a==b else print("b")
+###########ENUMERATE FUNCTIO IN PYHON 
+#(through this function we can get both the value of the objects in list you can say that and also the index of the objects if we run a loop in it lets see it in an aexample )
+marks = [2,47,6,32,81,123,24,18,1]
+for index,mark in enumerate(marks):
+    print(mark)
+    if(index==5):
+        print("awesommemeee brrooo!!!!")
+fruits=["banaan","apple","orange","mango","grapes"]
+for index,fruit in enumerate(fruits,start =1):
+    print(fruit)
+    if(index==2):
+        print("favouriteee oneeee!!!!")
+#########we creste virtual environments in python if diffreent packages diffreent people are using create any kind of conflicts so to avoid them we use virtual envirionment 
+#so the packages of my version have nothin to do with the packages of opython i using in my computer doing notmal work with them
