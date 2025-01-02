@@ -136,3 +136,55 @@ else:
             case _:
                 print("Invalid choice. Exiting the game.")
                 exit()'''
+#####Q5 make a snake water gun game , we will use 2 methods simply one simple if and else statements and one by using 2 dimesional matrix
+'''import random 
+def computer_choice():
+    choices = ["snake","water","gun"]
+    return random.choice(choices)
+    #The random.choice() function is a built-in function from the random module. It takes a sequence (like a list or a tuple) as an argument and returns a randomly selected element from that sequence.
+def user_choice():
+    get_user_input = input("enter the choice you want : ('snake','water','gun')").lower()
+    while get_user_input not in ["snake","water","gun"]:
+        print("invalid choice plz choose from this ; ['snake','water','gun']")
+        get_user_input = input("enter the choice you want : ('snake','water','gun')").lower()
+    return  get_user_input 
+def determie_winner(computer ,user):
+    if computer == user :
+        return "its a draw!!"
+    elif (computer == "snake" and user == "gun") or (computer == "gun" and user == "water") or (computer =="water" and user == "snake"):
+        return "user wins!!"
+    else :
+        return "computer wins !!"
+def play_game():
+    print("welcome to snake water gun game !")
+    compChoice  = computer_choice()
+    usChoice  = user_choice()
+    print(f"Computer chose: {compChoice}")
+    print(f"You chose: {usChoice}")
+    result = determie_winner(compChoice,usChoice)
+    print(result)
+if __name__  == "__main__":
+    play_game()'''
+########Q7 write a libarary class with no. of books and books as two diferent varaibles ,write a program to create a libarary from libarary class ,and sow how can you print all books , add books and get the no. of books using different ,ethods show that your program doesn't persist the books after the program is stopped .
+class Library:
+    no_of_books = 5 
+    Books = ["Amarbail","Mala","silent Patient","sulphite","Maseel"]
+    def Print_books(self):
+        print("So the list of the book in this library is as follows:")
+        print(self.Books)
+    def add_books(self):
+        choice = input("write the name of the book you wanna add:")
+        self.Books.append(choice)
+        print("so the new liast after addition of your book is ")
+        print(self.Books)
+        self.no_of_books = self.no_of_books + 1 
+    def check_books_count(self):
+         if self.no_of_books == len(self.Books):
+             print("your count is correct which is ", self.no_of_books )
+         else:
+             print("count is wrong and maybe there a probelm !")
+print("WELCOME TO LIBRARY MANAGEMENT SYSTEM!!!")
+reader = Library()
+reader.Print_books()
+reader.add_books()
+reader.check_books_count()

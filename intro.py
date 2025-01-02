@@ -450,7 +450,7 @@ finally:
 # print("a") if a<b else print("=") if a==b else print("b")
 ###########ENUMERATE FUNCTIO IN PYHON 
 #(through this function we can get both the value of the objects in list you can say that and also the index of the objects if we run a loop in it lets see it in an aexample )
-marks = [2,47,6,32,81,123,24,18,1]
+'''marks = [2,47,6,32,81,123,24,18,1]
 for index,mark in enumerate(marks):
     print(mark)
     if(index==5):
@@ -459,6 +459,379 @@ fruits=["banaan","apple","orange","mango","grapes"]
 for index,fruit in enumerate(fruits,start =1):
     print(fruit)
     if(index==2):
-        print("favouriteee oneeee!!!!")
+        print("favouriteee oneeee!!!!")'''
 #########we creste virtual environments in python if diffreent packages diffreent people are using create any kind of conflicts so to avoid them we use virtual envirionment 
 #so the packages of my version have nothin to do with the packages of opython i using in my computer doing notmal work with them
+###########import in python
+# we can use import methos in oython to import diffreent methods in that function or whatever it is 
+# import math
+# result = math.sqrt(25)
+# print(result)
+# we can also use secific functins from it by using it like
+#from math import sqrt , pi  
+#from math import *   to import all the methods of math but this procedure is not usable as it can cause a bit problem while compiling 
+#we can also make short forms of methods like 
+#from math import sqrt as s ( now we can use it as s(25))
+# result = sqrt(25) * pi
+# print(result)
+# import math
+# print(dir(math)) #dir function is used to print all the methods or functions present in math module
+# from song import sing , SINGER #imported our functions from our own made file 
+# sing()
+# print(SINGER)
+######################
+#he if __name__ == "__main__": construct in Python is used to determine whether a Python script is being run as the main program or if it is being imported as a module in another script. This is important for controlling the execution of code in a way that allows for both standalone execution and modular use.
+#__name__ Variable:
+
+# In Python, every module has a built-in attribute called __name__.
+# When a module is run directly, Python sets __name__ to "__main__".
+# If the module is imported into another module, __name__ is set to the module's name (i.e., the filename without the .py extension).
+#its very important as it can save your computer as if you import a file and it start executing its function then it can be dangerous 
+##########OS MODULE
+#The os module in Python provides a way to interact with the operating system. It offers a variety of functions to perform operations related to file and directory management, process management, environment variables, and more. The os module is part of the Python Standard Library, which means it comes pre-installed with Python and does not require any additional installatio
+###########global and local variable 
+# x = 10    #global variable
+# def name():
+#     x=3    #local variable
+#     print(x)
+# name()
+# print(x)     #it will remain 10 as it is gloabla variable and the x in fuction only depends on that function
+####now if we want to change the value of global variable in a function the we will have to use global keyword in function to make sure that we are dealing with global variable 
+# def po():
+#     global x 
+#     x=67
+# po()
+# print(x)  #this will chamge the value of x to 67
+###############file handling in python 
+'''1.Read Mode ('r'):
+with open('file.txt', 'r') as file:
+    content = file.read()
+2.Write Mode ('w')
+with open('file.txt', 'w') as file:
+    file.write('Hello, World!')
+3.Append Mode ('a'):
+with open('file.txt', 'a') as file:
+    file.write('Appending this line.')
+4.Read and Write Mode ('r+'):
+with open('file.txt', 'r+') as file:
+    content = file.read()
+    file.write('Adding this line.')
+5.Write and Read Mode ('w+'):
+with open('file.txt', 'w+') as file:
+    file.write('Writing this line.')
+    file.seek(0)  # Move the cursor to the beginning of the file
+    content = file.read()
+6.Append and Read Mode ('a+'):
+with open('file.txt', 'a+') as file:
+    file.write('Appending this line.')
+    file.seek(0)  # Move the cursor to the beginning of the file
+    content = file.read()'''
+########reading from a file 
+# f = open("practice.txt", 'r')
+# text = f.read()
+# print(text)
+#f.close()
+#writing in a file 
+# f = open("practice.txt", 'w')
+# f.write("tph main kuch nhi mango dunya seee")
+# f.close()
+########appending
+# f = open("practice.txt", 'a')
+# f.write("toh main kuch nhi mango dunya seee")
+# f.close()
+# now mpstly we have to use file.close to make our function run but with another method we dont neew to use that file.close and ou commands will still work 
+# with open("practice.txt", 'a') as f:
+#     f.write("   mane na mane koi dunya ye sari mere ishq ki hai dewani ")
+###########methods of file handling in oython
+#readlines ()method
+# f  = open("practice.txt",'r')
+# while True:
+#  line = f.readlines()
+#  if not line :
+#   break
+#  print(line)
+#example 
+# f  = open("practice.txt",'r')
+# i = 0 
+# while True:
+#  line = f.readlines()
+#  if not line:
+#   break
+#  m1 = line.split(",")[0]
+#  m2 = line.split(",")[1]
+#  m3 = line.split(",")[2]
+#  print(f"the marks of student {i} in maths is {m1}")
+#  print(f"the marks of student {i} in english is {m2}")
+#  print(f"the marks of student {i} in science is {m3}")
+####code without error
+# Open the file in read mode
+'''f = open("practice.txt", 'r')
+
+# Initialize a counter for students
+i = 0 
+
+# Iterate over each line in the file
+for line in f:
+     # Increment the student counter
+    i += 1
+
+    # Strip any leading/trailing whitespace (including newline characters)
+    line = line.strip()
+    
+    # Check if the line is not empty
+    if not line:
+        continue  # Skip empty lines
+
+    # Split the line by commas
+    marks = line.split(",")
+    
+    # Ensure there are at least 3 marks
+    if len(marks) < 3:
+        print(f"Not enough data for student {i}.")
+        continue
+
+    # Extract marks for each subject
+    m1 = marks[0]
+    m2 = marks[1]
+    m3 = marks[2]
+
+    # Print the marks
+    print(f"The marks of student {i} in maths is {m1}")
+    print(f"The marks of student {i} in English is {m2}")
+    print(f"The marks of student {i} in Science is {m3}")
+
+    
+
+# Close the file
+f.close()
+
+#wruite lines method 
+f = open("practice.txt",'w')
+lines = ["line 1\n","line 2\n","line 3\n"]
+f.writelines(lines)
+f.close()'''
+#seek() and tell() amd other functions 
+#The seek() function is used to change the current file position (the file pointer) to a specified location . The tell() function is used to get the current position of the file pointer in the file , It returns the current position as an integer, which represents the number of bytes from the beginning of the file.
+# with open('text.txt','r') as fu:
+#  print(type(fu))
+# #Move to the 10th byte from the beginning
+#  f.seek(10)
+#  print(fu.tell())
+#  data = fu.read(5)
+#  print(data)
+ #truncate( ) means to truncate the file size according to what yu need for example yiu can truncate file to 5 words ad there won't be any other words written in it 
+
+# with open('text.txt','w') as fu:
+#  fu.write("hello world")
+#  fu.truncate(5)
+# with open('text.txt','r') as fu:
+#  print(fu.read())
+ 
+
+#lambda function is an anonymous function without any name for eaxmple 
+# def double(x):
+#  return x*2
+# print(double(3))
+
+# #OR SAME THIG IS 
+# double = lambda x: x*2 
+# print(double(3))
+# avg = lambda x,y : (x+y)/2
+# print(avg(3,6))
+# #we can also use lamda function for using it inside a function as well for example lets we see
+# def lee(fx , value):
+#  return 4 + fx(value)
+# print(lee(double,6)) 
+# print(lee(lambda x : x*2 , 6))
+# print(lee(lambda x : x*x*x,5))
+#############MAP FILTER REDUCE METHOD 
+# def cube(x):
+#     return x*x*x
+# lt = [5,8,4,2,4,1,0,9]
+#let we want cube of every element of list
+# newlist = []
+# for l in list:
+#     newlist.append(cube(l))
+# print(newlist)
+#this method is quite long so instead of this we will use map 
+# newlist = list(map(cube,lt))
+#can use lambda s\as well 
+#newlist = list(map(lambda x : x*x*x,lt))
+# print(newlist)
+#now filtering the elemnts through the list 
+# newli = []
+# def filter_function(a):
+#     return a>4
+# newli = list(filter(filter_function , lt))
+# print(newli)
+###we need to import reduce to make it work 
+'''from functools import reduce
+list = [2,3,4,6,7]
+def dum(x,y):
+    return x+y
+sum = reduce(dum , list)
+print(sum)'''
+######is and vs keyword in python 
+# a = 6
+# b = "6"
+# print(a is  b)  #compare location of object in memory(vcompare identity)
+# print(a==b)  #compare value 
+############OOP IN PYTHON 
+# class person:
+#     name = "Natalia"
+#     occupation = "hacker"
+#     age = 23 
+#     def info(self): #self is a keyword ,self means the obejct for this the method is being called 
+#         print(f"{self.name} is a professional {self.occupation} and she can help you in any kind of investigation")
+# a = person()
+# print(a.name , a.occupation , a.age)
+# a.info()
+# b = person()
+# b.name = "sara"
+# b.age  = 45
+# b.info()
+###########constructor
+# class person:
+#     def __init__(self , n , o):
+#         # print("hey im a constructor ")
+#         self.name = n 
+#         self.occupation = o
+#     def info(self):
+#         print(f"hey im {self.name} and i'm a {self.occupation} !!")
+# x = person("Sana" , "accountant")
+# y = person("Haris","HR")
+# x.info()
+# y.info()
+########DECORATOS IN PYTHON 
+#lets we make greet as a decorator and it takes the real function inside it and aslo the function which add functionality into the real function when we call it with decorator greet 
+# def greet(fx):
+#     def mfx(s,p):
+#         print("good moring sir !")
+#         fx(s,p)
+#         print("thanks for using decorator within the function")
+#     return mfx
+# #The wrapper function (mfx in your example) needs to accept the same arguments as the original function (fx). This is important because when you call the decorated function, you want to ensure that it can accept any arguments that the original function can accept. If you didn't pass the arguments to the wrapper, you wouldn't be able to pass them to the original function.
+    
+# @greet
+# def add(a , m):
+#     print("the sum of two numbers is ", a+m)
+# add(3,6)
+#In Python, getters and setters are methods that allow you to access and modify the attributes of a class in a controlled way. They are part of the concept of encapsulation, which is one of the fundamental principles of object-oriented programming.
+# Getters
+# A getter is a method that retrieves the value of an attribute. It allows you to access the value of a private or protected attribute from outside the class.
+# Setters
+# A setter is a method that sets or updates the value of an attribute. It allows you to modify the value of a private or protected attribute from outside the class, often with additional validation or processing.
+# class Person:
+#     def __init__(self, name, age):
+#         self._name = name  # Using a single underscore to indicate a protected attribute
+#         self._age = age
+
+#     # Getter for name
+#     @property
+#     def name(self):
+#         return self._name
+
+#     # Setter for name
+#     @name.setter
+#     def name(self, value):
+#         if not isinstance(value, str):
+#             raise ValueError("Name must be a string")
+#         self._name = value
+
+#     # Getter for age
+#     @property
+#     def age(self):
+#         return self._age
+
+#     # Setter for age
+#     @age.setter
+#     def age(self, value):
+#         if not isinstance(value, int) or value < 0:
+#             raise ValueError("Age must be a non-negative integer")
+#         self._age = value
+
+# # Example usage
+# person = Person("Alice", 30)
+
+# # Using the getter
+# print(person.name)  # Output: Alice
+# print(person.age)   # Output: 30
+
+# # Using the setter
+# person.name = "Bob"  # Valid
+# print(person.name)    # Output: Bob
+
+# # person.name = 123  # This would raise a ValueError
+
+# person.age = 35  # Valid
+# print(person.age)  # Output: 35
+
+# person.age = -5  # This would raise a ValueError
+#########aonther example using setters and getters 
+# class myClass:
+#     def __init__(self,value):
+#         self._value = value
+#     def show(self):
+#         print(f"value is {self._value}")
+#     @property
+#     def ten_value(self):
+#         return 10 * self._value
+#     @ten_value.setter
+#     def ten_value(self , new_value):
+#         self._value =  new_value/10
+# obj = myClass(34)
+# obj.ten_value = 45
+# print(obj.ten_value)
+# obj.show()
+###########INHERTANCE IN PYTHON 
+# class employee:
+#     def __init__(self , id , name):
+#         self.id = id 
+#         self.name = name
+
+#     def show(self):
+#         print(f"so the name of the employee {self.id} is {self.name}")
+# class programmer(employee):
+#     def showLan(self):
+#         print("so the languahe of the programmer is python")
+# class hacker(programmer):
+#     def skill(self):
+#         print("so the main skill of the hacker is penetartion testig and web serving ")
+# e1 = employee("harry",34)
+# e1.show()
+# e2 = programmer("sunit",67897)
+# e2.show()
+# e2.showLan()
+# e3 = hacker("black rose",7018375469)
+# e3.show()
+# e3.showLan()
+# e3.skill()
+ ####in python there is no specific terms for access modifiers but for conevnience we can use  them as private by  adding double underscore __ with variable name and still acess the, directly by using name mangling(e.g,   e1._employee__name) . for protected it is single undercsore _   covention van be adopted that single score ,ay use for private sometimes according to people if they dont want to use ame mangking 
+###sometime you can write function without passing self as an argument and this is possible by using statuc method lets see an example
+# class numbers:
+#     def __init__(self , num):
+#         self.num = num
+#     def add(self , n):
+#         return self.num + n
+#     @staticmethod
+#     def addtonum(a,b):
+#         return a+b
+# number = numbers(3)
+# print(number.add(8))
+# print(number.addtonum(86,87))
+        
+#############instance and class variables 
+class employee:
+    companyName="APPLE"
+    def __init__(self, name):
+        self.name = name
+        self.raise_amount = 6.976
+    def showDetails(self):
+        print(f" so the name of the employee is {self.name} and raise is {self.raise_amount} and company is {self.companyName}")
+e1 = employee("harry")
+e1.companyName = "Apple canada"  #istance variable first compiler check if there is  a instance variabe of e1 if not then it will go to class variable 
+e1.showDetails()
+e2= employee("daniel")
+e2.showDetails()
+
+              
