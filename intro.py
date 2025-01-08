@@ -821,17 +821,180 @@ print(sum)'''
 # print(number.addtonum(86,87))
         
 #############instance and class variables 
-class employee:
-    companyName="APPLE"
-    def __init__(self, name):
-        self.name = name
-        self.raise_amount = 6.976
-    def showDetails(self):
-        print(f" so the name of the employee is {self.name} and raise is {self.raise_amount} and company is {self.companyName}")
-e1 = employee("harry")
-e1.companyName = "Apple canada"  #istance variable first compiler check if there is  a instance variabe of e1 if not then it will go to class variable 
-e1.showDetails()
-e2= employee("daniel")
-e2.showDetails()
+# class employee:
+#     companyName="APPLE"
+#     def __init__(self, name):
+#         self.name = name
+#         self.raise_amount = 6.976
+#     def showDetails(self):
+#         print(f" so the name of the employee is {self.name} and raise is {self.raise_amount} and company is {self.companyName}")
+# e1 = employee("harry")
+# e1.companyName = "Apple canada"  #istance variable first compiler check if there is  a instance variabe of e1 if not then it will go to class variable 
+# e1.showDetails()
+# e2= employee("daniel")
+# e2.showDetails()
+##########OS MODULE
+###The os module in Python is a standard library module that provides a way to interact with the operating system. It allows you to perform various operating system-related tasks such as file and directory manipulation, process management, and environment variable handling. The os module is particularly useful for writing cross-platform applications, as it abstracts away many of the differences between operating systems.
+# os.mkdir(path): Creates a new directory at the specified path.
+# os.rmdir(path): Removes an empty directory at the specified path.
+# os.makedirs(path): Creates a directory and any necessary parent directories.
+# os.removedirs(path): Removes a directory and any empty parent directories.
+# os.listdir(path): Returns a list of the entries in the specified directory.
+# os.getcwd(): Returns the current working directory.
+# os.chdir(path): Changes the current working directory to the specified path.
+# os.rename(src, dst): Renames a file or directory from src to dst.
+# os.remove(path): Deletes a file at the specified path.
+# os.path submodule: Contains functions for manipulating file paths (e.g., os.path.join(), os.path.exists(), os.path.isfile(), etc.).
+# import os
 
-              
+# # # Get current working directory
+# current_directory = os.getcwd()
+# print("Current Directory:", current_directory)
+
+# # # Create a new directory
+# new_directory = "test_dir"
+# os.mkdir(new_directory)
+# print(f"Directory '{new_directory}' created.")
+
+# # # List files and directories in the current directory
+# print("Contents of the current directory:", os.listdir(current_directory))
+
+# ##Change to the new directory
+# os.chdir(new_directory)
+# print("Changed to directory:", os.getcwd())
+
+# # # Go back to the original directory
+# os.chdir(current_directory)
+# print("Changed back to directory:", os.getcwd())
+
+# # Remove the created directory
+# os.rmdir(new_directory)
+# print(f"Directory '{new_directory}' removed.")
+#######class methods 
+#in a function the by default variable in a function is instance variable for examle copany(cls , newName) in which cls is instance variable it will be changed for a specific object but not for thw whole class but if we want to chnge that for the whole class we can maje a method named as @classmethod whih will chnage the name for the whole class and class will be given as an argument in function instead of a variable 
+# class Employee:
+#     company = "apple"
+#     def show(self):
+#         print(f"so the name of the employee is {self.name} and name of the compny is {self.company}")
+#     @classmethod
+#     def changeCompany(cls , newCom):
+#         cls.company = newCom
+# e1 = Employee()
+# e1.name = "guarana"
+# e1.show()
+# e1.changeCompany("rhysu")
+# e1.show()
+# print(Employee.company)  
+###class methods as alternative constructors 
+# class employee:
+#     def __init__(self,name,salary):
+#         self.name = name 
+#         self.salary = salary
+#     @classmethod
+#     def fromstr(cls , string):
+#         return cls(string.split('-')[0] ,string.split('-')[1] )
+# e1 = employee("harry" , 4566)
+# print(e1.name)
+# print(e1.salary)
+# stri = "goriya-620000"
+# e2 = employee.fromstr(stri)
+# print(e2.name)
+# print(e2.salary)
+#########dir(), __dict__ , help() methods 
+'''list = [34,89,"john",35,533,"duianmin"]
+print(dir(list))  #wil tell us about all components using in list or maybe tupke 
+print(list.__add__)
+
+class student:
+    def __init__(self, name , grade):
+        self.name  = name
+        self.grade = grade
+        print(f"so the name of the student is {self.name} and grade of the student is {self.grade}")
+s1 = student("maris",7)
+print(s1.__dict__)   #will give information about all the attribues if the class as dictionary
+print(help(s1))  #will give all the information about the obj 
+print(help(student))'''
+#####super keyword in python is used to refer to parent calss it is specially useful when a child class is inherits from multiple parent classes and you want to inheit a mathod from a specific parent class 
+# class parentClass:
+#     def parent_method(self):
+#         print("calling parent method")
+# class childClass(parentClass):
+#     def child_method(self):
+#         print("calling child method")
+#         super().parent_method()
+# c1 = childClass()
+# c1.child_method()
+#we can use this method to call constructirs as well lets say 
+# class employee:
+#     def __init__(self, name ,id):
+#         self.name = name
+#         self.id  = id
+# class programmer(employee):
+#     def __init__(self,name,id ,lang):
+#         super().__init__(name,id)   #self.name = name andself.id  = id we dont have to use this code again
+#         self.lang = lang
+# p1 = programmer("john",67890,"java")
+# print(p1.lang)
+#############MAGIC/DUNDER METHODS
+# Special Naming: Magic methods are always surrounded by double underscores (e.g., __init__, __str__, __add__). This naming convention distinguishes them from regular methods.
+
+# Automatic Invocation: These methods are automatically called by Python in response to certain operations. For example, when you use the + operator, Python internally calls the __add__ method.
+
+# Customization: Magic methods allow you to customize the behavior of your objects, making them more intuitive and easier to use.
+# class Vector:
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+
+#     def __str__(self):
+#         return f"Vector({self.x}, {self.y})"
+
+#     def __add__(self, other):
+#         return Vector(self.x + other.x, self.y + other.y)
+
+#     def __eq__(self, other):
+#         return self.x == other.x and self.y == other.y
+
+# # Usage
+# v1 = Vector(2, 3)
+# v2 = Vector(4, 5)
+
+# # Using __str__ method
+# print(v1)  # Output: Vector(2, 3)
+
+# # Using __add__ method
+# v3 = v1 + v2
+# print(v3)  # Output: Vector(6, 8)
+
+# # Using __eq__ method
+# print(v1 == v2)  # Output: False
+# print(v1 == Vector(2, 3))  # Output: True
+########__call__ method example 
+#Certainly! The __call__ magic method in Python allows an instance of a class to be called as if it were a function. When you implement the __call__ method in a class, you can define what happens when an instance of that class is called with parentheses.
+# class adder:
+#     def __init__(self,incre):
+#         self.incre = incre
+#     def __call__(self,value):
+#         self.value = value
+#         return self.value + self.incre
+# a1 = adder(6)
+# result = a1(78)
+# # print(result)
+#######method overiding in python
+class shape:
+    def __init__(self,x,y):
+        self.x = x 
+        self.y = y
+    def area(self):
+        return self.x * self.y
+
+class circle(shape):
+    def __init__(self,radius):
+        self.radius = radius 
+        super().__init__(radius,radius)
+    def area(self):
+        return 3.14 * super().area()
+c0 = shape(5,7)
+print(c0.area())
+c1 = circle(1)
+print(c1.area()) 

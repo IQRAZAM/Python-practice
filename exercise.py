@@ -166,7 +166,7 @@ def play_game():
 if __name__  == "__main__":
     play_game()'''
 ########Q7 write a libarary class with no. of books and books as two diferent varaibles ,write a program to create a libarary from libarary class ,and sow how can you print all books , add books and get the no. of books using different ,ethods show that your program doesn't persist the books after the program is stopped .
-class Library:
+'''class Library:
     no_of_books = 5 
     Books = ["Amarbail","Mala","silent Patient","sulphite","Maseel"]
     def Print_books(self):
@@ -187,4 +187,62 @@ print("WELCOME TO LIBRARY MANAGEMENT SYSTEM!!!")
 reader = Library()
 reader.Print_books()
 reader.add_books()
-reader.check_books_count()
+reader.check_books_count()'''
+#####we have to write a program in which we need to clear the clutter in a folder by using OS model in python also use OS module to change the names of the files in that folder 
+'''import os 
+#make a directory
+directory_name = "Exercise_dir"
+try:
+      os.mkdir(directory_name)
+      print(f"dircetory {directory_name} created ")
+except FileExistsError:
+      print(f"directory {directory_name} alreday exists")
+ #now we will create 20 files 
+for i in range(1 , 21):
+      file_name = f"file_{i}.txt"
+      file_path = os.path.join(directory_name , file_name)
+      with open (file_path , 'w') as file:
+           file.write(f"this is the file no. {i}")
+           print(f"file '{file_name}' is being cteated in directory '{directory_name}'.")
+      new_file_name = f"new_file_{i}.txt"
+      new_file_path = os.path.join(directory_name , new_file_name)
+      os.rename(file_path,new_file_path)
+      print(f"file '{file_name}' is being changed to'{new_file_name}'.")
+      os.remove(new_file_path)
+
+print("all files are created successfully ")
+print("and then renamed successfully ")
+#now we wil chamge the name of the files by using same above loop 
+#now finally deleting the whole dir
+os.removedirs(directory_name)'''
+#write a program to merge pdf using pyPDF module in python should be able to merge multiple pdf files into one file 
+import pypdf
+
+def merge_pdfs(pdf_list, output_filename):
+    # Create a PDF writer object
+    pdf_writer = pypdf.PdfWriter()
+
+    # Loop through the list of PDF files
+    for pdf in pdf_list:
+        # Open each PDF file
+        with open(pdf, 'rb') as file:
+            pdf_reader = pypdf.PdfReader(file)  # Create a PDF reader object
+            # Add each page to the writer object
+            for page in range(len(pdf_reader.pages)):
+                pdf_writer.add_page(pdf_reader.pages[page])
+
+    # Write the merged PDF to a new file
+    with open(output_filename, 'wb') as output_file:
+        pdf_writer.write(output_file)
+
+# List of PDF files to merge
+pdf_files = ['file1.pdf', 'file2.pdf', 'file3.pdf']  # Replace with your PDF file names
+output_pdf = 'merged_output.pdf'  # Name of the output file
+
+# Merge the PDF files
+merge_pdfs(pdf_files, output_pdf)
+
+print(f"Merged PDF saved as '{output_pdf}'")
+
+
+     
