@@ -236,7 +236,7 @@ def merge_pdfs(pdf_list, output_filename):
         pdf_writer.write(output_file)
 
 # List of PDF files to merge
-pdf_files = ['file1.pdf', 'file2.pdf', 'file3.pdf']  # Replace with your PDF file names
+pdf_files = ['OOP.pdf', 'dld.pdf', 'cover page.pdf']  # Replace with your PDF file names
 output_pdf = 'merged_output.pdf'  # Name of the output file
 
 # Merge the PDF files

@@ -981,20 +981,92 @@ print(help(student))'''
 # result = a1(78)
 # # print(result)
 #######method overiding in python
-class shape:
-    def __init__(self,x,y):
-        self.x = x 
-        self.y = y
-    def area(self):
-        return self.x * self.y
+# class shape:
+#     def __init__(self,x,y):
+#         self.x = x 
+#         self.y = y
+#     def area(self):
+#         return self.x * self.y
 
-class circle(shape):
-    def __init__(self,radius):
-        self.radius = radius 
-        super().__init__(radius,radius)
-    def area(self):
-        return 3.14 * super().area()
-c0 = shape(5,7)
-print(c0.area())
-c1 = circle(1)
-print(c1.area()) 
+# class circle(shape):
+#     def __init__(self,radius):
+#         self.radius = radius 
+#         super().__init__(radius,radius)
+#     def area(self):
+#         return 3.14 * super().area()
+# c0 = shape(5,7)
+# print(c0.area())
+# c1 = circle(1)
+
+# print(c1.area())#
+#  ##################pypdf module is python for manipulating pdf files 
+# The pypdf module is a Python library designed for working with PDF files. It provides a range of functionalities that allow users to read, manipulate, and create PDF documents. The library is a fork of the original PyPDF2 library and has been updated and maintained to improve performance and add new features.
+# Custom Function:
+
+# merge_pdfs(pdf_list, output_filename): This function is defined by the programmer to encapsulate the logic for merging PDF files.
+# Library Methods and Attributes:
+
+# pypdf.PdfWriter(): Constructor for creating a PDF writer.
+# pypdf.PdfReader(file): Constructor for creating a PDF reader.
+# pdf_reader.pages: Attribute that provides access to the pages of the PDF.
+# pdf_writer.add_page(page): Method to add a page to the writer.
+# pdf_writer.write(output_file): Method to write the merged PDF to a file.
+'''import pypdf
+def merge_pdf(pdf_list , outputfile_name):
+    pdf_writer = pypdf.PdfWriter()
+    for pdf in pdf_list:
+        with open(pdf ,'rb') as file:
+            pdf_reader = pypdf.PdfReader(file)
+            for page in range(len(pdf_reader.pages)):
+                pdf_writer.add_page(pdf_reader.pages[page])
+    with open(outputfile_name,'wb') as outputfile:
+        pdf_writer.write(outputfile)
+pdf_files = ['OOP.pdf', 'dld.pdf', 'cover page.pdf']  # Replace with your PDF file names
+output_pdf = 'merged_output.pdf' 
+merge_pdf(pdf_files, output_pdf)
+
+print(f"Merged PDF saved as '{output_pdf}'")
+'''
+#########operator overloading 
+# class vector:
+#     def __init__(self,i,j,k):
+#         self.i = i
+#         self.j = j
+#         self.k = k 
+#     def __str__(self):
+#         return f"{self.i}i + {self.j}j + {self.k}k"
+#     def __add__(self,x):
+#         return vector(self.i + x.i , self.j+x.j , self.k+x.k)
+# v1 = vector(2,3,4)
+# v2 = vector(7,1,6)
+# print(v1)
+# print(v2)
+# print(v1+v2)
+#######inheritance (single level)
+# class animal:
+#     def __init__(self,name,color):
+#         self.name = name
+#         self.color = color
+#         print(f"my animal name is {self.name} and its color is {self.color}")
+#     def sound(self):
+#         print("it makes a sound")
+# class cat(animal):
+#     def sound(self):
+#         print("it meowsss!!!!!")
+# a1 = animal("tonny","olive green")
+# a1.sound()
+# a2 = cat("kittuuuu","while and grey")
+# a2.sound()
+#########multiple inheritance 
+class programmer:
+    def __init__(self):
+        print("this employee is a programmer")
+class cyberanalyst:
+    def __init__(self):
+        print("this employee is a cyber security expert")
+class employee(programmer,cyberanalyst):
+    def show(self):
+        print("he is a parogarmmer and cyber analyst at the same time ")
+w1 = employee()
+w1.show()
+print(employee.mro()) #which shows that class programmer will be preffered and ts costrunctor will be printed as it was written first 
