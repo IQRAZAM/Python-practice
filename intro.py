@@ -1058,15 +1058,629 @@ print(f"Merged PDF saved as '{output_pdf}'")
 # a2 = cat("kittuuuu","while and grey")
 # a2.sound()
 #########multiple inheritance 
-class programmer:
-    def __init__(self):
-        print("this employee is a programmer")
-class cyberanalyst:
-    def __init__(self):
-        print("this employee is a cyber security expert")
-class employee(programmer,cyberanalyst):
-    def show(self):
-        print("he is a parogarmmer and cyber analyst at the same time ")
-w1 = employee()
-w1.show()
-print(employee.mro()) #which shows that class programmer will be preffered and ts costrunctor will be printed as it was written first 
+# class programmer:
+#     def __init__(self):
+#         print("this employee is a programmer")
+# class cyberanalyst:
+#     def __init__(self):
+#         print("this employee is a cyber security expert")
+# class employee(programmer,cyberanalyst):
+#     def show(self):
+#         print("he is a parogarmmer and cyber analyst at the same time ")
+# w1 = employee()
+# w1.show()
+# print(employee.mro()) #which shows that class programmer will be preffered and ts costrunctor will be printed as it was written first 
+##########multilevel inheritance 
+# class base():
+#   pass
+# class derived1(base):
+#     pass
+# class derived2(derived1):
+#     pass
+# #########hybrid inheritance 
+# class base():
+#     pass
+# class derived1(base):
+#     pass
+# class derived2(base):
+#     pass
+# class derived3(derived1,derived2):
+#     pass
+# #######hierarichal
+# class base():
+#     pass
+# class derived1(base):
+#     pass
+# class derived2(base):
+#     pass
+# class derived3(derived2):
+#     pass
+# class derived4(derived2):
+#     pass
+##############time module in python 
+# import time
+# def usingfor():
+#     for i in range(30000):
+#         print(i)
+# def usingwhile():
+#     i = 0
+#     while(i<=30000):
+#         i = i+ 1
+#         print(i)
+# init =  time.time()
+# usingfor()
+# t1 = time.time() - init
+# init =  time.time()
+# usingwhile()
+# t2 = time.time()-init
+
+# print(t1)
+# print(t2)
+# import time
+
+# Uncomment the following lines if you want to use them
+# print(9)
+# time.sleep(2)
+
+# print("This is printed after 2 seconds")
+# t = time.localtime()
+# formatted_time = time.strftime("%Y-%m-%d %H:%M:%S", t)  # Changed %D to %d
+# print(formatted_time)
+
+#####stack in python 
+# class Stack:
+#     def __init__(self):
+#         self.values = []
+#     def __str__(self):
+#         return str(self.values)
+
+#     def push(self, x):
+#         self.values.append(x)  # Add to the end of the list (top of the stack)
+
+#     def pop(self):
+#         if not self.is_empty():
+#             return self.values.pop()  # Remove and return the last item (top of the stack)
+#         else:
+#             raise IndexError("pop from empty stack")  # Raise an error if the stack is empty
+
+#     def is_empty(self):
+#         return len(self.values) == 0
+    
+# # Example usage
+# s = Stack()
+# s.push(10)
+# s.push(39)
+# s.push(8)  # Just push, no need to print the return value
+# print(s)
+# print("Popped item:", s.pop())  # This will pop the last item (8)
+# print("Popped item:", s.pop())  # This will pop the next item (39)
+# print("Popped item:", s.pop())  # This will pop the last item (10)
+
+#######QUEUE in python 
+# class Queue:
+#     def __init__(self):
+#         """Initialize an empty queue."""
+#         self.items = []
+
+#     def is_empty(self):
+#         """Check if the queue is empty."""
+#         return len(self.items) == 0
+
+#     def enqueue(self, item):
+#         """Add an item to the end of the queue."""
+#         self.items.append(item)
+
+#     def dequeue(self):
+#         """Remove and return the front item of the queue. Raises an error if the queue is empty."""
+#         if self.is_empty():
+#             raise IndexError("dequeue from empty queue")
+#         return self.items.pop(0)
+
+#     def peek(self):
+#         """Return the front item of the queue without removing it. Raises an error if the queue is empty."""
+#         if self.is_empty():
+#             raise IndexError("peek from empty queue")
+#         return self.items[0]
+
+#     def size(self):
+#         """Return the number of items in the queue."""
+#         return len(self.items)
+
+#     def __str__(self):
+#         """Return a string representation of the queue."""
+#         return str(self.items)
+
+# # Example usage
+# if __name__ == "__main__":
+#     q = Queue()
+#     print("Is queue empty?", q.is_empty())  # True
+#     q.enqueue(10)
+#     q.enqueue(20)
+#     q.enqueue(30)
+#     print("Queue after enqueues:", q)  # [10, 20, 30]
+#     print("Front item (peek):", q.peek())  # 10
+#     print("Dequeued item:", q.dequeue())  # 10
+#     print("Queue after dequeue:", q)  # [20, 30]
+#     print("Is queue empty?", q.is_empty())  # False
+#     print("Queue size:", q.size())  # 2
+#Stack: Follows the Last In, First Out (LIFO) principle. This means that the last element added to the stack is the first one to be removed. Think of it like a stack of plates; you add new plates to the top and also remove plates from the top.
+
+# Queue: Follows the First In, First Out (FIFO) principle. This means that the first element added to the queue is the first one to be removed. You can think of it like a line of people waiting to buy tickets; the first person in line is the first one to be served.
+
+# Define the graph as an adjacency list
+#     0
+#    / \
+#   1   2
+#  / \   \
+# 3   4   5
+# graph = {
+#     'A': ['B', 'C'],
+#     'B': ['D', 'E'],
+#     'C': ['F'],
+#     'D': [],
+#     'E': ['F'],
+#     'F': []
+# }
+# from collections import deque     ###deque: Short for "double-ended queue," a deque is a data structure that allows you to add and remove elements from both ends efficiently. It is part of the collections module and is implemented as a doubly linked list.
+
+# def bfs(graph, start):
+#     """Perform Breadth-First Search on the graph starting from the given node."""
+#     visited = set()  # Set to keep track of visited nodes
+#     queue = deque([start])  # Initialize the queue with the starting node
+
+#     while queue:
+#         node = queue.popleft()  # Remove and return the leftmost item in the queue
+#         if node not in visited:
+#             print(node)  # Process the node (in this case, we print it)
+#             visited.add(node)  # Mark the node as visited
+#             # Add all unvisited neighbors to the queue
+#             for neighbor in graph[node]:
+#                 if neighbor not in visited:
+#                     queue.append(neighbor)
+
+# # Example usage
+# if __name__ == "__main__":
+#     print("BFS starting from node A:")
+#     bfs(graph, 'A')
+# graph = {
+#     'A' : ['B','F','D','E'],
+#     'B'  : ['K','J'],
+#     'F'  : [],
+#     'D'   : ['G'] ,
+#      'E'  : ['C','H','I'],
+#      'K'  : ['N','M'],
+#      'C'  : [],  # Adding C as a key with no neighbors
+#     'H'  : [],  # Adding H as a key with no neighbors
+#     'G'  : [],  # Adding G as a key with no neighbors
+#     'J'  : [],  # Adding J as a key with no neighbors
+#     'N'  : [],  # Adding N as a key with no neighbors
+#     'M'  : [],  # Adding M as a key with no neighbors
+#     'L'  : [] ,  # Adding L as a key with no neig
+#      'I'  : ['L']
+# }
+# from collections import deque 
+# def bfs(graph, start):
+#     """Perform Breadth-First Search on the graph starting from the given node."""
+#     visited = set()  # Set to keep track of visited nodes
+#     queue = deque([start])  # Initialize the queue with the starting node
+
+#     while queue:
+#         node = queue.popleft()  # Remove and return the leftmost item in the queue
+#         if node not in visited:
+#             print(node)  # Process the node (in this case, we print it)
+#             visited.add(node)  # Mark the node as visited
+#             # Add all unvisited neighbors to the queue
+#             for neighbor in graph[node]:
+#                 if neighbor not in visited:
+#                     queue.append(neighbor)
+
+# # Example usage
+# if __name__ == "__main__":
+#     print("BFS starting from node A:")
+#     bfs(graph, 'A'
+########DFS 
+# graph = {
+#     'A': ['B', 'F', 'D', 'E'],
+#     'B': ['K', 'J'],
+#     'F': [],
+#     'D': ['G'],
+#     'E': ['C', 'H', 'I'],
+#     'K': ['N', 'M'],
+#     'I': ['L'],
+#     'C': [],  # Adding C as a key with no neighbors
+#     'H': [],  # Adding H as a key with no neighbors
+#     'G': [],  # Adding G as a key with no neighbors
+#     'J': [],  # Adding J as a key with no neighbors
+#     'N': [],  # Adding N as a key with no neighbors
+#     'M': [],  # Adding M as a key with no neighbors
+#     'L': []   # Adding L as a key with no neighbors
+# }
+# def dfs(graph, node, visited=None):
+#     """Perform Depth-First Search on the graph starting from the given node."""
+#     if visited is None:
+#         visited = set()  # Initialize the visited set if it's the first call
+
+#     if node not in visited:
+#         print(node)  # Process the node (in this case, we print it)
+#         visited.add(node)  # Mark the node as visited
+#         # Recursively visit all unvisited neighbors
+#         for neighbor in graph[node]:
+#             dfs(graph, neighbor, visited)
+
+# # Example usage
+# if __name__ == "__main__":
+#     print("DFS starting from node A:")
+#     dfs(graph, 'A')
+#############DLS SERACH 
+'''graph = {
+    'A': ['B', 'F', 'D', 'E'],
+    'B': ['K', 'J'],
+    'F': [],
+    'D': ['G'],
+    'E': ['C', 'H', 'I'],
+    'K': ['N', 'M'],
+    'I': ['L'],
+    'C': [],  # Adding C as a key with no neighbors
+    'H': [],  # Adding H as a key with no neighbors
+    'G': [],  # Adding G as a key with no neighbors
+    'J': [],  # Adding J as a key with no neighbors
+    'N': [],  # Adding N as a key with no neighbors
+    'M': [],  # Adding M as a key with no neighbors
+    'L': []   # Adding L as a key with no neighbors
+}
+def depth_limited_search(graph, node, limit, visited=None):
+    """Perform Depth-Limited Search on the graph starting from the given node."""
+    if visited is None:
+        visited = set()  # Initialize the visited set if it's the first call
+
+    if limit < 0:
+        return  # Limit reached, stop searching
+
+    if node not in visited:
+        print(node)  # Process the node (in this case, we print it)
+        visited.add(node)  # Mark the node as visited
+
+        # Recursively visit all unvisited neighbors within the limit
+        for neighbor in graph[node]:
+            depth_limited_search(graph, neighbor, limit - 1, visited)
+
+# Example usage for DLS
+if __name__ == "__main__":
+    print("Depth-Limited Search starting from node A with limit 2:")
+    depth_limited_search(graph, 'A', limit=2)'''
+#########IDS search
+# Define the graph as an adjacency list
+'''graph = {
+    'A': ['B', 'F', 'D', 'E'],
+    'B': ['K', 'J'],
+    'F': [],
+    'D': ['G'],
+    'E': ['C', 'H', 'I'],
+    'K': ['N', 'M'],
+    'I': ['L'],
+    'C': [],  # Adding C as a key with no neighbors
+    'H': [],  # Adding H as a key with no neighbors
+    'G': [],  # Adding G as a key with no neighbors
+    'J': [],  # Adding J as a key with no neighbors
+    'N': [],  # Adding N as a key with no neighbors
+    'M': [],  # Adding M as a key with no neighbors
+    'L': []   # Adding L as a key with no neighbors
+}
+
+def depth_limited_search(graph, node, limit, visited=None):
+    """Perform Depth-Limited Search on the graph starting from the given node."""
+    if visited is None:
+        visited = set()  # Initialize the visited set if it's the first call
+
+    if limit < 0:
+        return  # Limit reached, stop searching
+
+    if node not in visited:
+        print(node)  # Process the node (in this case, we print it)
+        visited.add(node)  # Mark the node as visited
+
+        # Recursively visit all unvisited neighbors within the limit
+        for neighbor in graph[node]:
+            depth_limited_search(graph, neighbor, limit - 1, visited)
+
+def iterative_deepening_search(graph, start, max_depth):
+    """Perform Iterative Deepening Search on the graph starting from the given node."""
+    for depth in range(max_depth + 1):
+        print(f"\nSearching with depth limit: {depth}")
+        depth_limited_search(graph, start, depth)
+
+# Example usage for IDS
+if __name__ == "__main__":
+    print("Iterative Deepening Search starting from node A with max depth 3:")
+    iterative_deepening_search(graph, 'A', max_depth=3)'''
+#############    A* SEARCH 
+'''import heapq
+
+# Define the graph as an adjacency list with costs
+graph = {
+    'A': {'B': 1, 'C': 4},
+    'B': {'A': 1, 'D': 2, 'E': 5},
+    'C': {'A': 4, 'F': 3},
+    'D': {'B': 2, 'G': 1},
+    'E': {'B': 5, 'G': 2},
+    'F': {'C': 3, 'G': 1},
+    'G': {'D': 1, 'E': 2, 'F': 1}
+}
+
+# Define a heuristic function (for example, straight-line distance)
+heuristic = {
+    'A': 7,
+    'B': 6,
+    'C': 2,
+    'D': 1,
+    'E': 2,
+    'F': 0,
+    'G': 0
+}
+
+def a_star_search(graph, start, goal):
+    """Perform A* search on the graph from start to goal."""
+    # Priority queue to store (cost, node)
+    open_set = []
+    heapq.heappush(open_set, (0 + heuristic[start], start))  # (f_score, node)
+
+    # Cost from start to the current node
+    g_score = {node: float('inf') for node in graph}
+    g_score[start] = 0
+
+    # To keep track of the path
+    came_from = {}
+
+    while open_set:
+        # Get the node in open_set with the lowest f_score
+        current_f_score, current_node = heapq.heappop(open_set)
+
+        # If we reached the goal, reconstruct the path
+        if current_node == goal:
+            path = []
+            while current_node in came_from:
+                path.append(current_node)
+                current_node = came_from[current_node]
+            path.append(start)
+            return path[::-1]  # Return reversed path
+
+        # Explore neighbors
+        for neighbor, cost in graph[current_node].items():
+            tentative_g_score = g_score[current_node] + cost
+
+            if tentative_g_score < g_score[neighbor]:
+                # This path to neighbor is better than any previous one
+                came_from[neighbor] = current_node
+                g_score[neighbor] = tentative_g_score
+                f_score = tentative_g_score + heuristic[neighbor]
+                heapq.heappush(open_set, (f_score, neighbor))
+
+    return None  # If there is no path
+
+# Example usage
+if __name__ == "__main__":
+    start_node = 'A'
+    goal_node = 'G'
+    path = a_star_search(graph, start_node, goal_node)
+    if path:
+        print(f"Path from {start_node} to {goal_node}: {' -> '.join(path)}")
+    else:
+        print(f"No path found from {start_node} to {goal_node}.")'''
+###########MAKING SIMPLE CLI USING argparse module in python
+# import argparse
+
+# def main():
+#     # Create the parser
+#     parser = argparse.ArgumentParser(description="A simple command line user interface.")
+
+#     # Add arguments
+#     parser.add_argument('-n', '--name', type=str, required=True, help='Your name')
+#     parser.add_argument('-a', '--age', type=int, required=True, help='Your age')
+
+#     # Parse the arguments
+#     args = parser.parse_args()
+
+#     # Use the arguments
+#     print(f"Hello, {args.name}! You are {args.age} years old.")
+
+# if __name__ == "__main__":
+#     main()
+##########WALRUS OPERATOR :=         assigning values to the variables inside expressions 
+# foods = list()   # without walrus 
+# while True:
+#     food = input("what food do you like?")
+#     if food == "quit":
+#       break
+#     foods.append(food)
+# print(foods)
+# foods = list()   # with walrus 
+# while (food:=input("what food do you like ?")) !="quit":
+    
+#     foods.append(food)
+# print(foods)
+########SHUTIL MODULE used to perform some amazing file operations 
+# import shutil
+# shutil.copy("intro.py","intro1.py")
+#hutil.copytree("intro.py","intro1.py)    for copying directory and folders
+#shutil.rm("intro.py","intro1.py)    for removing file
+#shutil.rmtree("intro.py","intro1.py)    for removing folders
+#shutil.mov("intro.py","intro1.py)    for moving files 
+############request module in python 
+# import requests   used to get code of that specific side can be used for html scripting or web scraping 
+# response = requests.get ("https://www.google.com/search?gs_ssp=eJzj4tTP1TcwMU02T1JgNGB0YPBiS8_PT89JBQBASQXT&q=google&rlz=1C1CHZN_enPK1021PK1021&oq=goo&gs_lcrp=EgZjaHJvbWUqEwgBEC4YgwEYxwEYsQMY0QMYgAQyBggAEEUYPDITCAEQLhiDARjHARixAxjRAxiABDIGCAIQRRg5MgYIAxBFGDwyBggEEEUYPDIGCAUQRRhBMgYIBhBFGEEyBggHEEUYQdIBCDUwMDFqMWo3qAIIsAIB&sourceid=chrome&ie=UTF-8")
+# print(response.text)
+##############POST request using request module
+# import requests
+
+# # URL to which the POST request will be sent
+# url = 'https://httpbin.org/post'
+
+# # Data to be sent in the POST request
+# data = {
+#     'name': 'Alice',
+#     'age': 30
+# }
+
+# # Sending the POST request
+# response = requests.post(url, json=data)
+
+# # Checking the response
+# if response.status_code == 200:
+#     print('Success!')
+#     print('Response JSON:', response.json())
+# else:
+#     print('Failed to send POST request:', response.status_code)
+############using bs4 module 
+# from bs4 import BeautifulSoup
+# import requests
+
+# # URL to send the GET request
+# url = 'https://www.google.com'
+
+# # Sending the GET request
+# response = requests.get(url)
+
+# # Check if the request was successful
+# if response.status_code == 200:
+#     html_content = response.text
+# else:
+#     print(f"Failed to retrieve content: {response.status_code}")
+
+# # Parse the HTML content
+# soup = BeautifulSoup(html_content, 'html.parser')
+
+# # Beautify the HTML code
+# pretty_html = soup.prettify()
+
+# # Print the beautified HTML
+# print(pretty_html)
+##########generators 
+#generators a re a s[ecial type of functions in python which produxces values on spot when they are being called ansd make a memory for them instead of already fix who many values it gonna have for example 
+# def my_generator():
+#     for i in range(40):
+#         yield i
+# gen = my_generator()
+# print(next(gen))
+# print(next(gen))
+# print(next(gen))
+# #ca also loop through it 
+# for j in gen:
+#    print(j)
+#########function catching in pyhton 
+#in which the values of the function are temprary stored so if the same operation is being run wit same values so it dont take time of computation and get the values from already stored function cacahe , now this will be store only till the function is run , if yiu restart the function it will again take time for this purpose we use functools moduke
+# from functools import lru_cache
+# import time
+# @lru_cache(maxsize = None)
+# def fx(n):
+#     time.sleep(5)
+#     return n*5
+# print(fx(3))
+# print(fx(2))
+# print(fx(10))
+# print(fx(3))
+# print(fx(2))
+# print(fx(0))
+############REGULAR EXPRESSIONS IN PYTHON 
+# re.search():
+
+# Searches for a pattern in a string and returns the first match.
+# import re 
+# result =  re.search(r'\d{3}',"my number is 56768")
+# print(result.group())
+# #Finds all occurrences of the pattern in the string and returns them as a list.
+# result = re.findall(r'\d{2}', "I have 10 apples and 20 bananas.")
+# print(result)
+# #Match an Email Address:
+# pattern = r'[\w\.-]+@[\w\.-]+'
+# result = re.search(pattern,"plz contact me at joh12@gmail.com")
+# print(result.group()) 
+# #finding words in paragraph 
+# import re
+
+# # Sample paragraph
+# paragraph = "I saw a cat, a bat, and a hat. The rat was scared of the fat cat."
+
+# # Regular expression to match words with any first letter and "at" as the rest
+# pattern = r'\b.at\b'  # \b ensures it matches whole words
+
+# # Find all matches
+# matches = re.findall(pattern, paragraph)
+
+# # Print the results
+# print("Words found:", matches)
+##########AsyncIO in python 
+#synchronous tasks
+# import asyncio
+# import time
+# async def func1():
+#     print("hello !!")
+#     await asyncio.sleep(2)
+#     print("gentleman")
+# asyncio.run(func1())
+# #cocurrent tasks 
+# async def task1():
+#     print("task 1 started")
+#     await asyncio.sleep(3)
+#     print("task 1 completed ")
+# async def task2():
+#     print("task 2 started")
+#     await asyncio.sleep(3)
+#     print("task 2 completed ")
+# async def task3():
+#     print("task 3 started")
+#     await asyncio.sleep(3)
+#     print("task 3 completed ")
+# async def task4():
+#     print("task 4 started")
+#     await asyncio.sleep(3)
+#     print("task 4 completed ")
+# async def main():
+#     await asyncio.gather(task1(),task2(),task3(),task4())
+# asyncio.run(main())
+# Real-World Use Cases
+# Web Scraping:
+
+# Fetch multiple web pages concurrently without blocking.
+# APIs:
+
+# Handle multiple API requests simultaneously.
+# Chat Servers:
+
+# Manage multiple client connections in real-time.
+# File I/O:
+
+# Read/write files asynchronously.
+#############multithreading in python 
+# import threading 
+# import time
+# def func(seconds):
+#     print(f"sleeping for {seconds} seconds")
+#     time.sleep(seconds)
+# #normla code
+# func(2)
+# func(3)
+# func(4)
+# #same code using threads
+# t1 = threading.Thread(target= func , args = [2])
+# t2 = threading.Thread(target= func , args = [3])
+# t3 = threading.Thread(target= func , args = [4])
+# t1.start()
+# t2.start()
+# t3.start()
+# ##we can also use concurrent.future module for real world projects 
+##############multiprocessing in python 
+import multiprocessing
+import requests
+def download(url ,name):
+    response = requests.get(url)
+    open(f"file{name}.jpg","wb").write(response.content)
+if __name__ == "__main__":
+ url = "https://picsum.photos/2000/3000"
+ pros = []
+ for i in range(5):
+    #download(url,f"image{i}")
+    p = multiprocessing.Process(target = download , args = [url,i])
+    p.start()
+    pros.append(p)
+ for p in pros:
+    p.join()

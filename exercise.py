@@ -216,7 +216,7 @@ print("and then renamed successfully ")
 #now finally deleting the whole dir
 os.removedirs(directory_name)'''
 #write a program to merge pdf using pyPDF module in python should be able to merge multiple pdf files into one file 
-import pypdf
+'''import pypdf
 
 def merge_pdfs(pdf_list, output_filename):
     # Create a PDF writer object
@@ -242,7 +242,150 @@ output_pdf = 'merged_output.pdf'  # Name of the output file
 # Merge the PDF files
 merge_pdfs(pdf_files, output_pdf)
 
-print(f"Merged PDF saved as '{output_pdf}'")
+print(f"Merged PDF saved as '{output_pdf}'")'''
+##write a program to to pronouncr list of names using wins32 API in python if you are given a list of names you should be able to pronounce the shoutout to name like that 
+# from gtts import gTTS
+# import os
 
+# # List of names
+# names = ["Alice", "Bob", "Charlie", "David","Alice", "Bob", "Charlie", "David"]
 
-     
+# # Loop through each name in the list
+# for name in names:
+#     # Create the shoutout message
+#     shoutout_message = f"Shoutout to {name}!"
+    
+#     # Create a gTTS object
+#     tts = gTTS(text=shoutout_message, lang='en', slow=False)
+    
+#     # Save the audio file
+#     audio_file = f"shoutout_{name}.mp3"
+#     tts.save(audio_file)
+    
+#     # Optionally, play the audio file
+#     os.system(f"start {audio_file}")  # For Windows
+#     # os.system(f"afplay {audio_file}")  # For macOS
+#     # os.system(f"mpg321 {audio_file}")  # For Linux
+
+# print("Shoutouts have been generated and played!")
+###using another module as well 
+'''import pyttsx3
+
+# Initialize the TTS engine
+engine = pyttsx3.init()
+
+# List of names
+names = ["Alice", "Nayyab", "Sidra", "Insha", "Sara", "Ayush Battun", "Natalia", "Sheikh"]
+
+# Function to speak a name
+def speak_name(name):
+    shoutout_message = f"Shoutout to {name}!"
+    engine.say(shoutout_message)
+    engine.runAndWait()  # Wait for the speech to finish
+
+# Loop through each name in the list and speak it
+for name in names:
+    speak_name(name)
+
+print("Shoutouts have been spoken!")'''
+#Q11use the NEWSAPI and request module to fetc the daily news related to different topics make a cool appliaction an dfetch news as much as you wat and make sure to thin about the choices of user who gonna use this application
+#newsapi key :8a694f9e6a564a6cadedba832a32ef7e
+'''import requests
+
+# Your API key
+API_KEY = '8a694f9e6a564a6cadedba832a32ef7e'
+BASE_URL = 'https://newsapi.org/v2/top-headlines'
+# Define news categories
+categories = {
+    1: 'K-Pop',
+    2: 'Hollywood',
+    3: 'Bollywood',
+    4: 'Music Industry',
+    5: 'Pakistan',
+    6: 'Modeling World',
+    7: 'Technology',
+    8: 'Sports',
+    9: 'Business',
+    10: 'Health',
+    11: 'Environment',
+    12: 'Education',
+    13: 'Travel',
+    14: 'Finance',
+    15: 'Food and Nutrition',
+    16: 'Fashion',
+    17: 'Automotive',
+    18: 'Gaming',
+    19: 'Cryptocurrency',
+    20: 'Mental Health'
+}
+def fetch_news(category):
+    params = {
+        'q': category,
+        'apiKey': API_KEY,
+        'language': 'en'
+    }
+    response = requests.get(BASE_URL, params=params)
+    if response.status_code == 200:
+        return response.json()['articles']       #The json() method parses the response body (which is typically in JSON format) and converts it into a Python dictionary (or list, depending on the structure of the JSON).
+    else:
+        print(f"Error fetching news: {response.status_code}")
+        return []
+def main():
+    print("Select a news category:")
+    for key, value in categories.items():
+        print(f"{key}. {value}")
+
+    choice = int(input("Enter your choice (1-20): "))
+    
+    if choice in categories:
+        news_articles = fetch_news(categories[choice])
+        if news_articles:
+            for article in news_articles:
+                print(f"Title: {article['title']}")
+                print(f"Source: {article['source']['name']}")
+                print(f"URL: {article['url']}\n")
+        else:
+            print("No articles found.")
+    else:
+        print("Invalid choice. Please select a number between 1 and 10.")
+
+if __name__ == "__main__":
+    main()'''
+##write a python program which reminds you of drinking water every hour your programe can either beep or send desktop notifications for a specific operating system 
+import time
+from plyer import notification
+
+def remind_me(interval):
+    while True:
+        time.sleep(interval)
+        notification.notify(
+            title="Drink Water Reminder",
+            message="It's time to drink some water! Stay hydrated!",
+            app_name="Water Reminder",
+            timeout=10  # Notification will disappear after 10 seconds
+        )
+
+def main():
+    print("Welcome to the Water Reminder App!")
+    choice = input("Do you want to be reminded every hour or at a specific time? (hour/specific): ").strip().lower()
+    
+    if choice == "hour":
+        interval = 3600  # 1 hour in seconds
+        remind_me(interval)
+    elif choice == "specific":
+        specific_time = input("Enter the time in HH:MM format (e.g., 14:30): ").strip()
+        current_time = time.strftime("%H:%M")
+        while current_time != specific_time:
+            time.sleep(10)  # Check every 10 seconds
+            current_time = time.strftime("%H:%M")
+        notification.notify(
+            title="Drink Water Reminder",
+            message="It's time to drink some water! Stay hydrated!",
+            app_name="Water Reminder",
+            timeout=10
+        )
+    else:
+        print("Invalid choice. Please run the program again.")
+
+if __name__ == "__main__":
+    main()
