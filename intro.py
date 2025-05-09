@@ -1669,18 +1669,32 @@ if __name__ == "__main__":
 # t3.start()
 # ##we can also use concurrent.future module for real world projects 
 ##############multiprocessing in python 
-import multiprocessing
-import requests
-def download(url ,name):
-    response = requests.get(url)
-    open(f"file{name}.jpg","wb").write(response.content)
-if __name__ == "__main__":
- url = "https://picsum.photos/2000/3000"
- pros = []
- for i in range(5):
-    #download(url,f"image{i}")
-    p = multiprocessing.Process(target = download , args = [url,i])
-    p.start()
-    pros.append(p)
- for p in pros:
-    p.join()
+# import multiprocessing
+# import requests
+# def download(url ,name):
+#     response = requests.get(url)
+#     open(f"file{name}.jpg","wb").write(response.content)
+# if __name__ == "__main__":
+#  url = "https://picsum.photos/2000/3000"
+#  pros = []
+#  for i in range(5):
+#     #download(url,f"image{i}")
+#     p = multiprocessing.Process(target = download , args = [url,i])
+#     p.start()
+#     pros.append(p)
+#  for p in pros:
+#     p.join()
+#####using pynput module in python 
+
+# from pynput import keyboard
+# def onPress(key):
+#     try:
+#         print(f'key {key.char} pressed')
+#     except AttributeError:
+#         print(f"key {key} pressed")
+# def onRelease(key):
+#     print(f"key {key} released")
+#     if key == keyboard.key.esc:
+#         return False
+# with keyboard.Listener(onPress = onPress , onRelese = onRelease) as Listener:
+#     Listener.join()
